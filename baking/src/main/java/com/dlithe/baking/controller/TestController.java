@@ -2,9 +2,13 @@ package com.dlithe.baking.controller;
 
 
 import com.dlithe.baking.dto.PatientDetailsRequest;
+import com.dlithe.baking.dto.StudentDetail;
 import com.dlithe.baking.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Set;
 
 @RestController
 public class TestController {
@@ -39,6 +43,25 @@ public class TestController {
         return testService.registerPatient(patientDetailsRequest);
     }
 
+
+    @GetMapping("get-student-detail/{studentId}")
+    public StudentDetail fetchStudentDetail(@PathVariable int studentId)
+    {
+        return testService.getStudentDetail(studentId);
+    }
+
+
+    @GetMapping ("get-all-record")
+    public List<StudentDetail> fetchStudentDetail()
+    {
+        return testService.getStudentDetail();
+    }
+
+    @GetMapping ("get-student-record")
+    public Set<StudentDetail> fetchData()
+    {
+        return testService.getStudentRecord();
+    }
 
 
     /*{

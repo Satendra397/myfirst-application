@@ -1,12 +1,15 @@
 package com.dlithe.baking.service;
 
 import com.dlithe.baking.dto.PatientDetailsRequest;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.dlithe.baking.dto.StudentDetail;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Set;
 
 @Component
 public interface TestService {
+
 
 
 
@@ -14,6 +17,11 @@ public interface TestService {
     int addNumber(int num1,int num2);
     int bigNumber(int num1,int num2);
 
-    String registerPatient(PatientDetailsRequest patientDetailsRequest);
+    String registerPatient(PatientDetailsRequest patientDetailsRequest); //post mapping
 
+    StudentDetail getStudentDetail(int studentId);  //get mapping
+
+    List<StudentDetail> getStudentDetail();        //get mapping
+
+    Set<StudentDetail>  getStudentRecord();
 }
