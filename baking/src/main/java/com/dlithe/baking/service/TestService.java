@@ -13,15 +13,20 @@ public interface TestService {
 
 
 
-    String fetchProductDetails(String productName);
-    int addNumber(int num1,int num2);
-    int bigNumber(int num1,int num2);
+   // String fetchProductDetails(String productName);
+    //int addNumber(int num1,int num2);
+    //int bigNumber(int num1,int num2);
 
     String registerPatient(PatientDetailsRequest patientDetailsRequest); //post mapping
 
-    StudentDetail getStudentDetail(int studentId);  //get mapping
+   // StudentDetail getStudentDetail(int studentId);  //get mapping
 
     List<StudentDetail> getStudentDetail();        //get mapping
 
-    Set<StudentDetail>  getStudentRecord();
+    StudentDetail getStudentDetailReview(int studentId);  // list of studentDetailReview
+
+
+    StudentDetail fetchDetailByUserName(String studentName);//student detail based on name
+
+    StudentDetail fetchDetailBasedOnIdAndName(String studentName, int studentId);//student detail based on idAndName
 }

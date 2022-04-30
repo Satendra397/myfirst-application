@@ -23,7 +23,7 @@ public class TestServiceImpl implements TestService {
 
 
 
-
+/*
     @Override
     public String fetchProductDetails(String productName) {
         switch (productName)
@@ -52,10 +52,7 @@ public class TestServiceImpl implements TestService {
         {
             return num2;
         }
-    }
-
-
-
+    }*/
 
     @Override
     public String registerPatient(PatientDetailsRequest patientDetailsRequest) {
@@ -67,14 +64,10 @@ public class TestServiceImpl implements TestService {
 
         studentDAO.save(student);
         return "Student detailed saved successfully!!!";
-
-
-
-
     }
 
 
-    @Override
+   /* @Override
     public StudentDetail getStudentDetail(int studentId) {
 
         List<StudentPerformanceResponse> performanceResponses = new ArrayList<>();
@@ -98,9 +91,9 @@ public class TestServiceImpl implements TestService {
 
         //studentDetail.setResponse(studentPerformanceResponse);
 
-        /**
+        *//**
          * using list multiple review
-         */
+         *//*
         StudentPerformanceResponse s1 = new StudentPerformanceResponse(); //object
         s1.setSubject("math");
         s1.setGrade("B");
@@ -118,7 +111,7 @@ public class TestServiceImpl implements TestService {
         studentDetail.setStudentResponse(performanceResponses);
         return studentDetail;
     }
-
+*/
 
 
     @Override
@@ -138,23 +131,74 @@ public class TestServiceImpl implements TestService {
         return studentDetailList;
     }
 
+    @Override
+    public StudentDetail getStudentDetailReview(int studentId) {
+        Optional<Student> student=studentDAO.findById(studentId);
+        Student studentDetail=student.get();
+
+        StudentDetail studentDetail1=new StudentDetail();
+
+        studentDetail1.setName(studentDetail.getName());
+        studentDetail1.setId(studentDetail.getId());
+        studentDetail1.setAge(studentDetail.getAge());
+
+        List<StudentPerformanceResponse> responses= new ArrayList<>();
+
+        StudentPerformanceResponse s1= new StudentPerformanceResponse();
+        s1.setGrade("A");
+        s1.setMark(33);
+        s1.setSubject("physics");
+        responses.add(s1);
+
+        StudentPerformanceResponse s2= new StudentPerformanceResponse();
+        s2.setGrade("B");
+        s2.setMark(39);
+        s2.setSubject("math");
+        responses.add(s2);
 
 
+        StudentPerformanceResponse s3= new StudentPerformanceResponse();
+        s3.setGrade("c");
+        s3.setMark(36);
+        s3.setSubject("english");
+        responses.add(s3);
+
+        studentDetail1.setStudentResponse(responses);
+
+
+
+        return  studentDetail1;
+
+
+    }
 
     @Override
-    public Set<StudentDetail> getStudentRecord() {
-        HashSet<StudentDetail> studentSet=new HashSet<>();
-        HashSet<Student> studentSetList= (HashSet<Student>) studentDAO.findAll();
+    public StudentDetail fetchDetailByUserName(String studentName) {
 
-        for (Student student:studentSetList)
-        {
-         StudentDetail studentDetail=new StudentDetail();
-         studentDetail.setName(student.getName());
-         studentDetail.setAge(student.getAge());
-         studentDetail.setId(student.getId());
-         studentSet.add(studentDetail);
-        }
-        return studentSet;
+
+        StudentDetail studentDetail = new StudentDetail();
+        Student student = studentDAO.findByName(studentName);
+
+        studentDetail.setName(student.getName());
+        studentDetail.setAge(student.getAge());
+        studentDetail.setId(student.getId());
+
+        return studentDetail;
+    }
+
+    @Override
+    public StudentDetail fetchDetailBasedOnIdAndName(String studentName, int studentId) {
+
+        Student student=studentDAO.findByNameAndId(studentId,studentName);
+        StudentDetail studentDetail=new StudentDetail();
+
+        studentDetail.setId(student.getId());
+        studentDetail.setName(student.getName());
+        studentDetail.setAge(student.getAge());
+
+        return studentDetail;
+
+
     }
 }
 

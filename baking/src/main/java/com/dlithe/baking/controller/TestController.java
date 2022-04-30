@@ -17,6 +17,7 @@ public class TestController {
     @Autowired
     private TestService testService;
 
+/*
 
     @GetMapping("fetch-product-detail/{productName}")
     public String myFirstMethod(@PathVariable String productName)
@@ -36,32 +37,61 @@ public class TestController {
     {
         return testService.bigNumber(num1,num2);
     }
+*/
 
     @PostMapping("register-patient")
-    public String registerNewPatient(@RequestBody PatientDetailsRequest patientDetailsRequest)
-    {
+    public String registerNewPatient(@RequestBody PatientDetailsRequest patientDetailsRequest) {
         return testService.registerPatient(patientDetailsRequest);
     }
 
 
-    @GetMapping("get-student-detail/{studentId}")
+   /* @GetMapping("get-student-detail/{studentId}")
     public StudentDetail fetchStudentDetail(@PathVariable int studentId)
     {
         return testService.getStudentDetail(studentId);
-    }
+    }*/
 
 
-    @GetMapping ("get-all-record")
-    public List<StudentDetail> fetchStudentDetail()
-    {
+    @GetMapping("get-all-record")
+    public List<StudentDetail> fetchStudentDetail() {
         return testService.getStudentDetail();
     }
 
-    @GetMapping ("get-student-record")
-    public Set<StudentDetail> fetchData()
-    {
-        return testService.getStudentRecord();
+
+    @GetMapping("student-detail-review/{studentId}")
+    public StudentDetail fetchStudentDetailReview(@PathVariable int studentId) {
+        return testService.getStudentDetailReview(studentId);
     }
+
+
+    @GetMapping("fetch-student-detail/{studentName}")
+    public StudentDetail fetchStudentDetailBasedOnName(@PathVariable String studentName) {
+        return testService.fetchDetailByUserName(studentName);
+    }
+
+
+    @GetMapping("fetch-student-detailBasedIdName/{studentId}/{studentName}")
+    public StudentDetail fetchDetailBasedOnIdName(@PathVariable int studentId,@PathVariable String studentName)
+    {
+        return testService.fetchDetailBasedOnIdAndName(studentName,studentId);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     /*{
