@@ -5,15 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
 @Setter
+@Getter
 @ToString
 @EqualsAndHashCode
-public class StudentPerformanceResponse {
+public class BankDetail {
 
 
-
-    private int mark;
-    private String grade;
-    private String subject;
+    private int id;
+    private String name;
+    private String address;
 }

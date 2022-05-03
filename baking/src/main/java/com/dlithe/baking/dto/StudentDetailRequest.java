@@ -6,19 +6,15 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Objects;
-
 @Getter
 @Setter
-@EqualsAndHashCode
 @ToString
+@EqualsAndHashCode
+public class StudentDetailRequest {
 
-public class PatientDetailsRequest {
 
+    private int id;
     private String name;
-    private int age;
-
-
-
-
+    private String course;
+    private String college;
 }

@@ -1,13 +1,13 @@
 package com.dlithe.baking.repository;
 
-import com.dlithe.baking.entity.Student;
+
+import com.dlithe.baking.entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StudentDAO extends JpaRepository<Student,Integer> {
+public interface UserDao  extends JpaRepository<Users,Integer> {
 
 
 
-    
 }
