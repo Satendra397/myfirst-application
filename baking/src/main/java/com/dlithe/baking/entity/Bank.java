@@ -1,6 +1,5 @@
 package com.dlithe.baking.entity;
 
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,9 +9,9 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
-@Table(name="student")
 @Entity
-public class Student {
+@Table(name="bank")
+public class Bank {
 
 
     @Id
@@ -24,9 +23,6 @@ public class Student {
     @Column(name="name")
     private String name;
 
-    @Column(name="course")
-    private String course;
-
-    @Column(name="college")
-    private String college;
+    @Column(name="address")
+    private String address;
 }

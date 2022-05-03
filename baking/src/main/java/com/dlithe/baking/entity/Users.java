@@ -10,9 +10,9 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
-@Table(name="student")
+@Table(name="user")
 @Entity
-public class Student {
+public class Users {
 
 
     @Id
@@ -21,12 +21,12 @@ public class Student {
     @Column(name="id")
     private int id;
 
-    @Column(name="name")
-    private String name;
+    @Column(name="firstName")
+    private String firstName;
 
-    @Column(name="course")
-    private String course;
+    @Column(name="lastName")
+    private String lastName;
 
-    @Column(name="college")
-    private String college;
+    @Column(name="mobileNo")
+    private String mobileNo;
 }

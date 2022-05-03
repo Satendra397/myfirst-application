@@ -7,12 +7,13 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-@Getter
 @Setter
+@Getter
 @ToString
-@Table(name="student")
 @Entity
-public class Student {
+@Table(name="country")
+public class Country {
+
 
 
     @Id
@@ -24,9 +25,9 @@ public class Student {
     @Column(name="name")
     private String name;
 
-    @Column(name="course")
-    private String course;
+    @Column(name="capital")
+    private String capital;
 
-    @Column(name="college")
-    private String college;
+    @Column(name="numOfState")
+    private int numOfState;
 }
